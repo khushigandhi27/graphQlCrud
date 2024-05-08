@@ -1,7 +1,7 @@
 import 'package:app/domain/menu/menu_repository.dart';
 import 'package:app/infrastructure/dtos/menu_dto.dart';
 import 'package:app/infrastructure/menu/i_menu_repository.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/core/config/app_config.dart';
@@ -22,7 +22,6 @@ class MenuDetailsCubit extends Cubit<MenuDetailsState> {
         state.copyWith(
           isLoading: false,
           isFailed: true,
-          isSuccessful: false,
           menu: null,
         ),
       );
@@ -30,12 +29,28 @@ class MenuDetailsCubit extends Cubit<MenuDetailsState> {
       emit(
         state.copyWith(
           isLoading: false,
-          isFailed: false,
-          isSuccessful: true,
           menu: r,
         ),
       );
     });
+  }
+
+  void deleteMenuItem() async {
+    emit(state.copyWith(isUpdating: true));
+    final res = await state.menuRepository.deleteMenuItem(menuId: state.id);
+
+    if (res) {
+      emit(state.copyWith(
+        isSuccessful: true,
+        msg: 'Deleted menu item successfully!',
+      ));
+    } else {
+      emit(state.copyWith(
+        isFailed: true,
+        isUpdating: false,
+        msg: 'Failed to delete menu item'
+      ));
+    }
   }
 
   void emitFromAnywhere({required MenuDetailsState state}) {

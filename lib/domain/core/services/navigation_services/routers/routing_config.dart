@@ -23,7 +23,16 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
           MenuDetailsScreen(id: routeData['itemId'] ?? ''), settings);
 
     case CommonRoutes.menuFormRoute:
-      return _getPageRoute(const MenuFormScreen(), settings);
+      final routeData = routingData.queryParameters;
+      final isEdit = routeData['isEdit'] ;
+      final menuId = routeData['menuId'] ;
+
+      return _getPageRoute(
+          MenuFormScreen(
+            isEdit: (isEdit ?? '') == 'true',
+            menuId: menuId ?? '',
+          ),
+          settings);
 
     default:
       return _getPageRoute(const DefaultWidget(), settings);

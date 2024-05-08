@@ -20,6 +20,8 @@ mixin _$MenuDetailsState {
   bool get isSuccessful => throw _privateConstructorUsedError;
   bool get isFailed => throw _privateConstructorUsedError;
   bool get noUse => throw _privateConstructorUsedError;
+  bool get isUpdating => throw _privateConstructorUsedError;
+  String get msg => throw _privateConstructorUsedError;
   MenuRepository get menuRepository => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   MenuDto? get menu => throw _privateConstructorUsedError;
@@ -40,6 +42,8 @@ abstract class $MenuDetailsStateCopyWith<$Res> {
       bool isSuccessful,
       bool isFailed,
       bool noUse,
+      bool isUpdating,
+      String msg,
       MenuRepository menuRepository,
       String id,
       MenuDto? menu});
@@ -64,6 +68,8 @@ class _$MenuDetailsStateCopyWithImpl<$Res, $Val extends MenuDetailsState>
     Object? isSuccessful = null,
     Object? isFailed = null,
     Object? noUse = null,
+    Object? isUpdating = null,
+    Object? msg = null,
     Object? menuRepository = null,
     Object? id = null,
     Object? menu = freezed,
@@ -85,6 +91,14 @@ class _$MenuDetailsStateCopyWithImpl<$Res, $Val extends MenuDetailsState>
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
+      isUpdating: null == isUpdating
+          ? _value.isUpdating
+          : isUpdating // ignore: cast_nullable_to_non_nullable
+              as bool,
+      msg: null == msg
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
       menuRepository: null == menuRepository
           ? _value.menuRepository
           : menuRepository // ignore: cast_nullable_to_non_nullable
@@ -126,6 +140,8 @@ abstract class _$$MenuDetailsStateImplCopyWith<$Res>
       bool isSuccessful,
       bool isFailed,
       bool noUse,
+      bool isUpdating,
+      String msg,
       MenuRepository menuRepository,
       String id,
       MenuDto? menu});
@@ -149,6 +165,8 @@ class __$$MenuDetailsStateImplCopyWithImpl<$Res>
     Object? isSuccessful = null,
     Object? isFailed = null,
     Object? noUse = null,
+    Object? isUpdating = null,
+    Object? msg = null,
     Object? menuRepository = null,
     Object? id = null,
     Object? menu = freezed,
@@ -170,6 +188,14 @@ class __$$MenuDetailsStateImplCopyWithImpl<$Res>
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
+      isUpdating: null == isUpdating
+          ? _value.isUpdating
+          : isUpdating // ignore: cast_nullable_to_non_nullable
+              as bool,
+      msg: null == msg
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
       menuRepository: null == menuRepository
           ? _value.menuRepository
           : menuRepository // ignore: cast_nullable_to_non_nullable
@@ -194,6 +220,8 @@ class _$MenuDetailsStateImpl implements _MenuDetailsState {
       required this.isSuccessful,
       required this.isFailed,
       required this.noUse,
+      required this.isUpdating,
+      required this.msg,
       required this.menuRepository,
       required this.id,
       this.menu});
@@ -207,6 +235,10 @@ class _$MenuDetailsStateImpl implements _MenuDetailsState {
   @override
   final bool noUse;
   @override
+  final bool isUpdating;
+  @override
+  final String msg;
+  @override
   final MenuRepository menuRepository;
   @override
   final String id;
@@ -215,7 +247,7 @@ class _$MenuDetailsStateImpl implements _MenuDetailsState {
 
   @override
   String toString() {
-    return 'MenuDetailsState(isLoading: $isLoading, isSuccessful: $isSuccessful, isFailed: $isFailed, noUse: $noUse, menuRepository: $menuRepository, id: $id, menu: $menu)';
+    return 'MenuDetailsState(isLoading: $isLoading, isSuccessful: $isSuccessful, isFailed: $isFailed, noUse: $noUse, isUpdating: $isUpdating, msg: $msg, menuRepository: $menuRepository, id: $id, menu: $menu)';
   }
 
   @override
@@ -230,6 +262,9 @@ class _$MenuDetailsStateImpl implements _MenuDetailsState {
             (identical(other.isFailed, isFailed) ||
                 other.isFailed == isFailed) &&
             (identical(other.noUse, noUse) || other.noUse == noUse) &&
+            (identical(other.isUpdating, isUpdating) ||
+                other.isUpdating == isUpdating) &&
+            (identical(other.msg, msg) || other.msg == msg) &&
             (identical(other.menuRepository, menuRepository) ||
                 other.menuRepository == menuRepository) &&
             (identical(other.id, id) || other.id == id) &&
@@ -238,7 +273,7 @@ class _$MenuDetailsStateImpl implements _MenuDetailsState {
 
   @override
   int get hashCode => Object.hash(runtimeType, isLoading, isSuccessful,
-      isFailed, noUse, menuRepository, id, menu);
+      isFailed, noUse, isUpdating, msg, menuRepository, id, menu);
 
   @JsonKey(ignore: true)
   @override
@@ -254,6 +289,8 @@ abstract class _MenuDetailsState implements MenuDetailsState {
       required final bool isSuccessful,
       required final bool isFailed,
       required final bool noUse,
+      required final bool isUpdating,
+      required final String msg,
       required final MenuRepository menuRepository,
       required final String id,
       final MenuDto? menu}) = _$MenuDetailsStateImpl;
@@ -266,6 +303,10 @@ abstract class _MenuDetailsState implements MenuDetailsState {
   bool get isFailed;
   @override
   bool get noUse;
+  @override
+  bool get isUpdating;
+  @override
+  String get msg;
   @override
   MenuRepository get menuRepository;
   @override

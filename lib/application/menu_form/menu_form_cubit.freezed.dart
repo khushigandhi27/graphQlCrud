@@ -20,6 +20,20 @@ mixin _$MenuFormState {
   bool get isSuccessful => throw _privateConstructorUsedError;
   bool get isFailed => throw _privateConstructorUsedError;
   bool get noUse => throw _privateConstructorUsedError;
+  bool get isEditMode => throw _privateConstructorUsedError;
+  String get msg => throw _privateConstructorUsedError;
+  GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
+  TextEditingController get titleController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get descController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get priceController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get categoryController =>
+      throw _privateConstructorUsedError;
+  MenuRepository get menuRepository => throw _privateConstructorUsedError;
+  String get menuId => throw _privateConstructorUsedError;
+  MenuDto? get menuDto => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MenuFormStateCopyWith<MenuFormState> get copyWith =>
@@ -32,7 +46,23 @@ abstract class $MenuFormStateCopyWith<$Res> {
           MenuFormState value, $Res Function(MenuFormState) then) =
       _$MenuFormStateCopyWithImpl<$Res, MenuFormState>;
   @useResult
-  $Res call({bool isLoading, bool isSuccessful, bool isFailed, bool noUse});
+  $Res call(
+      {bool isLoading,
+      bool isSuccessful,
+      bool isFailed,
+      bool noUse,
+      bool isEditMode,
+      String msg,
+      GlobalKey<FormState> formKey,
+      TextEditingController titleController,
+      TextEditingController descController,
+      TextEditingController priceController,
+      TextEditingController categoryController,
+      MenuRepository menuRepository,
+      String menuId,
+      MenuDto? menuDto});
+
+  $MenuDtoCopyWith<$Res>? get menuDto;
 }
 
 /// @nodoc
@@ -52,6 +82,16 @@ class _$MenuFormStateCopyWithImpl<$Res, $Val extends MenuFormState>
     Object? isSuccessful = null,
     Object? isFailed = null,
     Object? noUse = null,
+    Object? isEditMode = null,
+    Object? msg = null,
+    Object? formKey = null,
+    Object? titleController = null,
+    Object? descController = null,
+    Object? priceController = null,
+    Object? categoryController = null,
+    Object? menuRepository = null,
+    Object? menuId = null,
+    Object? menuDto = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -70,7 +110,59 @@ class _$MenuFormStateCopyWithImpl<$Res, $Val extends MenuFormState>
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
+      isEditMode: null == isEditMode
+          ? _value.isEditMode
+          : isEditMode // ignore: cast_nullable_to_non_nullable
+              as bool,
+      msg: null == msg
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
+      formKey: null == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
+      titleController: null == titleController
+          ? _value.titleController
+          : titleController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      descController: null == descController
+          ? _value.descController
+          : descController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      priceController: null == priceController
+          ? _value.priceController
+          : priceController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      categoryController: null == categoryController
+          ? _value.categoryController
+          : categoryController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      menuRepository: null == menuRepository
+          ? _value.menuRepository
+          : menuRepository // ignore: cast_nullable_to_non_nullable
+              as MenuRepository,
+      menuId: null == menuId
+          ? _value.menuId
+          : menuId // ignore: cast_nullable_to_non_nullable
+              as String,
+      menuDto: freezed == menuDto
+          ? _value.menuDto
+          : menuDto // ignore: cast_nullable_to_non_nullable
+              as MenuDto?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MenuDtoCopyWith<$Res>? get menuDto {
+    if (_value.menuDto == null) {
+      return null;
+    }
+
+    return $MenuDtoCopyWith<$Res>(_value.menuDto!, (value) {
+      return _then(_value.copyWith(menuDto: value) as $Val);
+    });
   }
 }
 
@@ -82,7 +174,24 @@ abstract class _$$MenuFormStateImplCopyWith<$Res>
       __$$MenuFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, bool isSuccessful, bool isFailed, bool noUse});
+  $Res call(
+      {bool isLoading,
+      bool isSuccessful,
+      bool isFailed,
+      bool noUse,
+      bool isEditMode,
+      String msg,
+      GlobalKey<FormState> formKey,
+      TextEditingController titleController,
+      TextEditingController descController,
+      TextEditingController priceController,
+      TextEditingController categoryController,
+      MenuRepository menuRepository,
+      String menuId,
+      MenuDto? menuDto});
+
+  @override
+  $MenuDtoCopyWith<$Res>? get menuDto;
 }
 
 /// @nodoc
@@ -100,6 +209,16 @@ class __$$MenuFormStateImplCopyWithImpl<$Res>
     Object? isSuccessful = null,
     Object? isFailed = null,
     Object? noUse = null,
+    Object? isEditMode = null,
+    Object? msg = null,
+    Object? formKey = null,
+    Object? titleController = null,
+    Object? descController = null,
+    Object? priceController = null,
+    Object? categoryController = null,
+    Object? menuRepository = null,
+    Object? menuId = null,
+    Object? menuDto = freezed,
   }) {
     return _then(_$MenuFormStateImpl(
       isLoading: null == isLoading
@@ -118,6 +237,46 @@ class __$$MenuFormStateImplCopyWithImpl<$Res>
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
+      isEditMode: null == isEditMode
+          ? _value.isEditMode
+          : isEditMode // ignore: cast_nullable_to_non_nullable
+              as bool,
+      msg: null == msg
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
+      formKey: null == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
+      titleController: null == titleController
+          ? _value.titleController
+          : titleController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      descController: null == descController
+          ? _value.descController
+          : descController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      priceController: null == priceController
+          ? _value.priceController
+          : priceController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      categoryController: null == categoryController
+          ? _value.categoryController
+          : categoryController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      menuRepository: null == menuRepository
+          ? _value.menuRepository
+          : menuRepository // ignore: cast_nullable_to_non_nullable
+              as MenuRepository,
+      menuId: null == menuId
+          ? _value.menuId
+          : menuId // ignore: cast_nullable_to_non_nullable
+              as String,
+      menuDto: freezed == menuDto
+          ? _value.menuDto
+          : menuDto // ignore: cast_nullable_to_non_nullable
+              as MenuDto?,
     ));
   }
 }
@@ -129,7 +288,17 @@ class _$MenuFormStateImpl implements _MenuFormState {
       {required this.isLoading,
       required this.isSuccessful,
       required this.isFailed,
-      required this.noUse});
+      required this.noUse,
+      required this.isEditMode,
+      required this.msg,
+      required this.formKey,
+      required this.titleController,
+      required this.descController,
+      required this.priceController,
+      required this.categoryController,
+      required this.menuRepository,
+      required this.menuId,
+      this.menuDto});
 
   @override
   final bool isLoading;
@@ -139,10 +308,30 @@ class _$MenuFormStateImpl implements _MenuFormState {
   final bool isFailed;
   @override
   final bool noUse;
+  @override
+  final bool isEditMode;
+  @override
+  final String msg;
+  @override
+  final GlobalKey<FormState> formKey;
+  @override
+  final TextEditingController titleController;
+  @override
+  final TextEditingController descController;
+  @override
+  final TextEditingController priceController;
+  @override
+  final TextEditingController categoryController;
+  @override
+  final MenuRepository menuRepository;
+  @override
+  final String menuId;
+  @override
+  final MenuDto? menuDto;
 
   @override
   String toString() {
-    return 'MenuFormState(isLoading: $isLoading, isSuccessful: $isSuccessful, isFailed: $isFailed, noUse: $noUse)';
+    return 'MenuFormState(isLoading: $isLoading, isSuccessful: $isSuccessful, isFailed: $isFailed, noUse: $noUse, isEditMode: $isEditMode, msg: $msg, formKey: $formKey, titleController: $titleController, descController: $descController, priceController: $priceController, categoryController: $categoryController, menuRepository: $menuRepository, menuId: $menuId, menuDto: $menuDto)';
   }
 
   @override
@@ -156,12 +345,42 @@ class _$MenuFormStateImpl implements _MenuFormState {
                 other.isSuccessful == isSuccessful) &&
             (identical(other.isFailed, isFailed) ||
                 other.isFailed == isFailed) &&
-            (identical(other.noUse, noUse) || other.noUse == noUse));
+            (identical(other.noUse, noUse) || other.noUse == noUse) &&
+            (identical(other.isEditMode, isEditMode) ||
+                other.isEditMode == isEditMode) &&
+            (identical(other.msg, msg) || other.msg == msg) &&
+            (identical(other.formKey, formKey) || other.formKey == formKey) &&
+            (identical(other.titleController, titleController) ||
+                other.titleController == titleController) &&
+            (identical(other.descController, descController) ||
+                other.descController == descController) &&
+            (identical(other.priceController, priceController) ||
+                other.priceController == priceController) &&
+            (identical(other.categoryController, categoryController) ||
+                other.categoryController == categoryController) &&
+            (identical(other.menuRepository, menuRepository) ||
+                other.menuRepository == menuRepository) &&
+            (identical(other.menuId, menuId) || other.menuId == menuId) &&
+            (identical(other.menuDto, menuDto) || other.menuDto == menuDto));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isLoading, isSuccessful, isFailed, noUse);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      isSuccessful,
+      isFailed,
+      noUse,
+      isEditMode,
+      msg,
+      formKey,
+      titleController,
+      descController,
+      priceController,
+      categoryController,
+      menuRepository,
+      menuId,
+      menuDto);
 
   @JsonKey(ignore: true)
   @override
@@ -175,7 +394,17 @@ abstract class _MenuFormState implements MenuFormState {
       {required final bool isLoading,
       required final bool isSuccessful,
       required final bool isFailed,
-      required final bool noUse}) = _$MenuFormStateImpl;
+      required final bool noUse,
+      required final bool isEditMode,
+      required final String msg,
+      required final GlobalKey<FormState> formKey,
+      required final TextEditingController titleController,
+      required final TextEditingController descController,
+      required final TextEditingController priceController,
+      required final TextEditingController categoryController,
+      required final MenuRepository menuRepository,
+      required final String menuId,
+      final MenuDto? menuDto}) = _$MenuFormStateImpl;
 
   @override
   bool get isLoading;
@@ -185,6 +414,26 @@ abstract class _MenuFormState implements MenuFormState {
   bool get isFailed;
   @override
   bool get noUse;
+  @override
+  bool get isEditMode;
+  @override
+  String get msg;
+  @override
+  GlobalKey<FormState> get formKey;
+  @override
+  TextEditingController get titleController;
+  @override
+  TextEditingController get descController;
+  @override
+  TextEditingController get priceController;
+  @override
+  TextEditingController get categoryController;
+  @override
+  MenuRepository get menuRepository;
+  @override
+  String get menuId;
+  @override
+  MenuDto? get menuDto;
   @override
   @JsonKey(ignore: true)
   _$$MenuFormStateImplCopyWith<_$MenuFormStateImpl> get copyWith =>

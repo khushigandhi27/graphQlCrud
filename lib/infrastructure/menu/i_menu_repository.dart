@@ -62,4 +62,78 @@ class IMenuRepository extends MenuRepository {
       return left(e.toString());
     }
   }
+
+  @override
+  Future<bool> addMenuItem({required Map<String, dynamic> data}) async {
+    bool isAdded = false;
+    try {
+      final response = await graphQLService.performMutation(
+        MenuRaw.addMenuItem,
+        variables: {'input': data},
+      );
+
+      if (response.hasException) {
+        throw Exception(response.exception);
+      }
+
+    if (response.data != null) {
+        isAdded = true;
+      }
+      
+      return isAdded;
+    } catch (e) {
+      return isAdded;
+    }
+  }
+
+  @override
+  Future<bool> deleteMenuItem({required String menuId}) async {
+    bool isRemoved = false;
+    try {
+      final response = await graphQLService.performMutation(
+        MenuRaw.deleteMenuItem,
+        variables: {'deleteMenuItemId': menuId},
+      );
+
+      if (response.hasException) {
+        throw Exception(response.exception);
+      }
+
+      if (response.data != null) {
+        isRemoved = true;
+      }
+
+      return isRemoved;
+    } catch (e) {
+      return isRemoved;
+    }
+  }
+
+  @override
+  Future<bool> updateMenuItem(
+      {required String menuId,
+      required Map<String, dynamic> updateData}) async {
+    bool isUpdated = false;
+    try {
+      final response = await graphQLService.performMutation(
+        MenuRaw.updateMenuItem,
+        variables: {
+          'input': updateData,
+          'updateMenuItemId': menuId,
+        },
+      );
+
+      if (response.hasException) {
+        throw Exception(response.exception);
+      }
+
+      if (response.data != null) {
+        isUpdated = true;
+      }
+
+      return isUpdated;
+    } catch (e) {
+      return isUpdated;
+    }
+  }
 }

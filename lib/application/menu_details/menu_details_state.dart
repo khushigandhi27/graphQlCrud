@@ -7,6 +7,8 @@ class MenuDetailsState with _$MenuDetailsState {
     required bool isSuccessful,
     required bool isFailed,
     required bool noUse,
+    required bool isUpdating,
+    required String msg,
     required MenuRepository menuRepository,
     required String id,
     MenuDto? menu,
@@ -16,10 +18,12 @@ class MenuDetailsState with _$MenuDetailsState {
           {required AppStateNotifier appStateNotifier, required String id}) =>
       MenuDetailsState(
         noUse: false,
-        isLoading: false,
+        isLoading: true,
         isFailed: false,
         isSuccessful: false,
         id: id,
+        isUpdating: false,
+        msg: '',
         menuRepository:
             IMenuRepository(graphQLService: appStateNotifier.graphQLService),
       );

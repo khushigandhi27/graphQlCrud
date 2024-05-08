@@ -53,7 +53,7 @@ class HomeScreenConsumer extends StatelessWidget {
                   )
                 : !state.isLoading && state.lsOfMenuItems.isEmpty
                     ? const Center(
-                        child: Text('0 Items found'),
+                        child: Text('No items available!'),
                       )
                     : ListView.separated(
                         itemBuilder: (context, index) {
@@ -70,7 +70,14 @@ class HomeScreenConsumer extends StatelessWidget {
                               Icons.coffee_sharp,
                               color: Theme.of(context).colorScheme.primary,
                             ),
-                            title: Text(state.lsOfMenuItems[index].title),
+                            title: Text(state.lsOfMenuItems[index].title,
+                               style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                    fontSize: 18.sp,
+                                  ),
+                            ),
                             subtitle: Text(
                               '\$${state.lsOfMenuItems[index].price}',
                               style: Theme.of(context)
@@ -92,7 +99,10 @@ class HomeScreenConsumer extends StatelessWidget {
                       ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              navigator<NavigationService>().navigateTo(CommonRoutes.menuFormRoute);
+            }
+            ,
             backgroundColor: Theme.of(context).colorScheme.primary,
             child: const Icon(
               Icons.add,
