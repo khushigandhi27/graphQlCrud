@@ -4,22 +4,29 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+    
         {
-            "name": "graphqldemo",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "graphqldemo (profile mode)",
+            "name": "Dev",
+            "program": "lib/main_dev.dart",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "dev"
+            ]
         },
         {
-            "name": "graphqldemo (release mode)",
+            "name": "Production",
+            "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "production"
+            ]
         }
     ]
 }
